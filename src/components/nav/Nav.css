@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+:root {
+    -—index: calc(1vw + 1vh)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: "Overpass";
+}
+
+.nav {
+    display: flex;
+}
+
+.nav li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+.nav a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.nav .submenu {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    position: absolute;
+}
+
+.nav li:hover .submenu {
+    max-height: 250px;
+}
+
+.nav .submenu li {
+    display: block;
+    margin: 0;
+}
