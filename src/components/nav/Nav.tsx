@@ -39,11 +39,11 @@ function Nav() {
 
 
       <SignedOut>
-    <SignInButton />
+      <SignInButton />
         {/* <p>This content is public. Only signed out users can see this.</p> */}
       </SignedOut>
       <SignedIn>
-      <SignOutButton aftersignouturl="" />
+      <SignOutButton />
         {/* <p>This content is private. Only signed in users can see this.</p> */}
       </SignedIn>
       
