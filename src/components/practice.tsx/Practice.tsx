@@ -1,4 +1,5 @@
 import { useUser } from "@clerk/clerk-react";
+import "../../index.css"
  
 export default function Practice() {
   const { isSignedIn, user, isLoaded } = useUser();
@@ -11,7 +12,7 @@ export default function Practice() {
   if (isSignedIn) {
     return (
 <>    <div>Hello {user.fullName}!</div>
-     {user.hasImage && <img src={user?.imageUrl} alt="" />}
+     {user.hasImage && <img className="user-avatar" src={user?.imageUrl} alt="" />}
 </>
     );
   }

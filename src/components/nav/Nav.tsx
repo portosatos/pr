@@ -1,6 +1,6 @@
 import "../../index.css"
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
-
+import Practice from "../practice.tsx/Practice";
 
 function Nav() {
   return (
@@ -44,7 +44,7 @@ function Nav() {
       </SignedOut>
       <SignedIn>
       <SignOutButton />
-        {/* <p>This content is private. Only signed in users can see this.</p> */}
+        {<Practice/>}
       </SignedIn>
       
     </div>

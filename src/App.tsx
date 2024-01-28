@@ -1,6 +1,6 @@
 import './index.css'
 import Header from "./components/header/Header"
-import Practice from './components/practice.tsx/Practice'
+import Captcha from './components/captcha/Captcha'
 // import { BrowserRouter, Route, Routes} from "react-router-dom"
 
 
@@ -13,8 +13,8 @@ function App() {
     //   </Routes>
     // </BrowserRouter>
     <>
-      <Practice/>
       <Header/> 
+      <Captcha />
     </>
   )
 }
