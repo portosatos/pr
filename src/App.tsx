@@ -1,6 +1,8 @@
 import './index.css'
-import Nav from "./components/nav/Nav"
+import Header from "./components/header/Header"
+import Practice from './components/practice/practice'
 // import { BrowserRouter, Route, Routes} from "react-router-dom"
+
 
 function App() {
 
@@ -11,7 +13,8 @@ function App() {
     //   </Routes>
     // </BrowserRouter>
     <>
-      <Nav/> 
+      <Practice/>
+      <Header/> 
     </>
   )
 }
