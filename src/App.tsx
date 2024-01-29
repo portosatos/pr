@@ -5,6 +5,7 @@ import Header from "./components/header/Header"
 
 
 function App() {
+console.log("dfzfdsf");
 
   return (
     // <BrowserRouter>
