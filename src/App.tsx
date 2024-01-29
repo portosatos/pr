@@ -1,6 +1,6 @@
 import './index.css'
 import Header from "./components/header/Header"
-import Captcha from './components/captcha/Captcha'
+// import Captcha from './components/captcha/Captcha'
 // import { BrowserRouter, Route, Routes} from "react-router-dom"
 
 
@@ -14,7 +14,7 @@ function App() {
     // </BrowserRouter>
     <>
       <Header/> 
-      <Captcha />
+      {/* <Captcha /> */}
     </>
   )
 }
