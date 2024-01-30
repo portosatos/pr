@@ -1,6 +1,6 @@
 import "../../index.css"
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
-import Practice from "../practice.tsx/Practice";
+import Auth from "../auth/Auth";
 
 function Nav() {
   return (
@@ -20,6 +20,7 @@ function Nav() {
             </li>
           </ul>
         </li>
+        
         <li>
           <a href="#">[SHOP]</a>
           <ul className='submenu'>
@@ -44,7 +45,7 @@ function Nav() {
       </SignedOut>
       <SignedIn>
       <SignOutButton />
-        {<Practice/>}
+        {<Auth/>}
       </SignedIn>
       
     </div>

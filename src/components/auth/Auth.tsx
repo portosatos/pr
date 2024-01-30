@@ -7,16 +7,15 @@ export default function Practice() {
   if (!isLoaded) {
     return null;
   }
-
   console.log(user);
   if (isSignedIn) {
     return (
-<>    <div>Hello {user.fullName}!</div>
+<>    <div>{user.fullName}</div>
      {user.hasImage && <img className="user-avatar" src={user?.imageUrl} alt="" />}
-</>
+</> 
     );
   }
  
-  return <div>Not signed in</div>;
+  return <div>log in</div>;
 }
  

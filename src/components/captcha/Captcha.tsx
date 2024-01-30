@@ -1,5 +1,3 @@
-
-
 function Captcha() {
     function onSubmit(token: string) {
         const form = document.getElementById("demo-form") as HTMLFormElement | null;

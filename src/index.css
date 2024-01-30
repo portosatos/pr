@@ -3,7 +3,9 @@
 /* HEADER */
 /* NAV */
 :root {
-    --index: calc(1vw + 1vh)
+    --index: calc(1vw + 1vh);
+    --height: calc(1vh);
+    --width: calc(1vw);
 }
 
 * {
@@ -13,12 +15,11 @@
     font-family: "Overpass";
 }
 
-.header{
+.header {
     background-image: url(https://images.wallpaperscraft.ru/image/single/dom_gory_priroda_144651_3840x2400.jpg);
-    background-size: cover;
-    background-size: contain;
+    background-size: cover; /* or background-size: contain; */
     background-repeat: no-repeat;
-    height: calc(var(--index) * 55);
+    height: calc(var(--width) * 41.2 + var(--height) * 10);
 }
 
 .nav {
@@ -59,7 +60,7 @@
 
 .user-avatar{
     background-size: cover;
-    width: 3%;
-    height: 3%;
+    width: calc(var(--index) * 3);
+    height: calc(var(--index) * 3);
     border-radius: 50%;
 }
