@@ -1,6 +1,4 @@
-// import { useRef } from "react";
 // import { useForm, SubmitHandler } from "react-hook-form";
-// import ReCAPTCHA from "react-google-recaptcha";
 
 // type Inputs = {
 //   example: string;
@@ -17,41 +15,95 @@
 //   } = useForm<Inputs>()
 //   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data)
 
-//   console.log(watch("example"))
 
-
-//     const recaptchaRef = useRef<ReCAPTCHA>();
-  
-//     const onSubmitWithReCAPTCHA = async () => {
-//       const token = await recaptchaRef?.current?.executeAsync();
-  
-//     }
-
-  
 
 //   return (
 //     <div>
       
- 
 
 
 
-//       <form onSubmit={handleSubmit(onSubmit) && onSubmitWithReCAPTCHA}>
+//       <form onSubmit={handleSubmit(onSubmit)}>
 //         <input defaultValue="test" {...register("example")} />
 //         <input {...register("exampleRequired", { required: true })} />
 //         {errors.exampleRequired && <span>This field is required</span>}
 //         <input type="submit" />
-
-//         <ReCAPTCHA
-//         ref={recaptchaRef}
-//         size="invisible"
-//         sitekey="your client site key"
-//       />
-
-
 //       </form>
 //     </div>
 //   );
 // }
 
 // export default Captcha;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+
+function Captcha() {
+
+
+    function onSubmit(token: string) {
+        const form = document.getElementById("demo-form") as HTMLFormElement | null;
+        if (form) {
+            form.submit();
+        }
+    }
+    
+
+  return (
+    <div>
+      <form id="demo-form" action="?" method="POST">
+        <button className="g-recaptcha" data-sitekey="6LdQdl4pAAAAACeydbb3hHOWdoWMysH9J_4SinEo" data-callback={onSubmit}>Submit</button>
+        <br />
+      </form>
+    </div>
+  );
+}
+
+export default Captcha; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
