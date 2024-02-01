@@ -1,53 +1,66 @@
-import "../../index.css"
-import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react"
+import React, { useState, useEffect } from 'react';
+import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Auth from "../auth/Auth";
+import { Link } from "react-router-dom";
+import "../../index.css";
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 200;
+      setScrolled(isScrolled);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <div className='nav'>
+    <div className={`nav ${scrolled ? 'scrolled' : ''}`}>
       <ul>
-        <li>
-          <a href="#">[MENU]</a>
+        <li className="nav-menu">
+          <Link style={{ color: scrolled ? 'black' : 'white' }} to='#'>[MENU]</Link>
           <ul className='submenu'>
             <li className='li-secondary'>
-              <a href="#">HOME</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/">HOME</a>
             </li>
             <li className='li-secondary'>
-              <a href="#">OUR STORY</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">OUR STORY</a>
             </li>
             <li className='li-secondary'>
-              <a href="#">FEEDBACK</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">FEEDBACK</a>
             </li>
           </ul>
         </li>
-        
-        <li>
-          <a href="#">[SHOP]</a>
+
+        <li className="nav-menu">
+          <Link style={{ color: scrolled ? 'black' : 'white' }} to='/Shop'>[SHOP]</Link>
           <ul className='submenu'>
-          <li className='li-secondary'>
-              <a href="#">BUY A HOUSE</a>
+            <li className='li-secondary'>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">SHOP</a>
             </li>
             <li className='li-secondary'>
-              <a href="#">TRADE WITH US</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">dsfsdfsd</a>
             </li>
             <li className='li-secondary'>
-              <a href="#">WE MAKE HOUSE FOR YOU</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">sdfsdfdsf</a>
             </li>
           </ul>
         </li>
       </ul>
 
-
-
       <SignedOut>
-      <SignInButton />
-        {/* <p>This content is public. Only signed out users can see this.</p> */}
+        <SignInButton className="signin-button" />
       </SignedOut>
       <SignedIn>
-      <SignOutButton />
-        {<Auth/>}
+        <SignOutButton />
+        {<Auth />}
       </SignedIn>
-      
     </div>
   );
 }

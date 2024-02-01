@@ -7,34 +7,41 @@
     --height: calc(1vh);
     --width: calc(1vw);
 }
-
+a{
+  color: white;
+}  
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
     font-family: "Overpass";
+    color: black;
 }
 
 .header {
-    background-image: url(https://images.wallpaperscraft.ru/image/single/dom_gory_priroda_144651_3840x2400.jpg);
-    background-size: cover; /* or background-size: contain; */
+    background-image: url(https://static.wixstatic.com/media/4e3a7d_c12d317e507945d5846d020c16a1fc57~mv2.jpg/v1/fill/w_1708,h_750,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/IMG_9395_JPG.jpg);
+    background-size: cover; 
     background-repeat: no-repeat;
-    height: calc(var(--width) * 41.2 + var(--height) * 10);
+    width: 100%;
+    height: calc(var(--height) * 100);
 }
 
 .nav {
     display: flex;
+    position: fixed;
+}
+
+.nav-menu{
+    margin: calc(var(--width) * 2) calc(var(--width) * 3.9);
 }
 
 .nav li {
     display: inline-block;
-    margin-right: 20px;
     position: relative;
 }
 
 .nav a {
     text-decoration: none;
-    color: black;
     display: block;
     padding: 10px;
     transition: background-color 0.3s ease;
@@ -47,16 +54,14 @@
     transition: max-height 0.3s ease;
     position: absolute;
 }
-
+/* для выпадающего списка */
 .nav li:hover .submenu {
     max-height: 250px;
 }
 
 .nav .submenu li {
     display: block;
-    margin: 0;
 }
-
 
 .user-avatar{
     background-size: cover;
@@ -64,3 +69,216 @@
     height: calc(var(--index) * 3);
     border-radius: 50%;
 }
+
+
+.signin-button {
+    background-color: none;
+    border: none;
+    margin: calc(var(--index) * 1) 0 0 calc(var(--index) * 45);
+    width: calc(var(--index) * 3);
+    height: calc(var(--index) * 3);
+}
+
+
+
+
+
+ /* Shop */
+
+.header-shop{
+    background-image: url(https://static.wixstatic.com/media/4509de_b00537be73194250990b49f250f82a94~mv2.jpg/v1/fill/w_1708,h_438,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/EVD02784_edited.jpg);
+    background-size: cover; 
+    background-repeat: no-repeat;
+    width: 100%;
+    height: calc( var(--height) * 36);
+    background-position: bottom;
+  }
+
+
+
+
+
+.item {
+    width: calc(33.33% - (var(--index) * 2));
+    margin: var(--index); 
+}
+
+
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+.shop-card-title {
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.cart-list {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .cart-item {
+    display: flex;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px; 
+  }
+  
+  .cart-item img {
+    width: 80px; 
+    height: 80px; 
+    margin-right: 16px;
+  }
+  
+
+
+
+  
+
+
+.shop-card {
+    border: 1px solid #ccc;
+    padding: 16px;
+    margin: 16px;
+    max-width: 200px;
+  }
+  
+  .shop-card img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  .shop-card-title {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  
+  .shop-card-price {
+    font-size: 14px;
+    color: #008000; 
+    margin-top: 8px;
+  }
+  
+  .shop-card-label {
+    font-size: 14px;
+    color: #ff0000; 
+    margin-top: 8px;
+  }
+  
+  .sort-buttons {
+    margin: 20px 0;
+  }
+  
+  .sort-buttons button {
+    margin-right: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .sort-buttons button.active {
+    background-color: #555;
+  }
+  
+  .pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .page-btn {
+    padding: 8px 16px;
+    margin: 0 5px;
+    font-size: 14px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .page-btn.active {
+    background-color: #555;
+  }
+  
+
+  .card{
+    width: 400px; 
+    height: 400px;
+  }
+
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--index); 
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  max-width: 200px;
+}
+
+.card img {
+  max-width: 100%;
+  height: auto;
+}
+
+.card-body {
+  flex: 1; 
+}
+
+.nav {
+  transition: background-color 0.5s ease, padding 0.5s ease;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav.scrolled {
+  background-color: white;
+  box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav.scrolled ul li a {
+  color: black;
+}
+
+
+.nav ul li a {
+  color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
