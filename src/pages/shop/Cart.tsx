@@ -1,13 +1,12 @@
-interface Item {
-  id: number;
-  thumbnailUrl: string;
-  title: string;
-  price: number;
-}
+// Cart.tsx
+import React from 'react';
+import { useCart } from '../../components/CartContext';
 
-const Cart = ({ cartItems }: { cartItems: Item[] }) => {
+const Cart = () => {
+  const { cartItems } = useCart();
+
   const subtotal = cartItems.reduce((total, item) => total + item.price, 0);
-  const deliveryCost = 25; 
+  const deliveryCost = 25;
   const total = subtotal + deliveryCost;
 
   return (
@@ -26,9 +25,15 @@ const Cart = ({ cartItems }: { cartItems: Item[] }) => {
       </ul>
 
       <div className="order-summary">
-        <p><strong>Subtotal:</strong> ${subtotal.toFixed(2)}</p>
-        <p><strong>Delivery:</strong> Kyrgyzstan (${deliveryCost.toFixed(2)})</p>
-        <p><strong>Total:</strong> ${total.toFixed(2)}</p>
+        <p>
+          <strong>Subtotal:</strong> ${subtotal.toFixed(2)}
+        </p>
+        <p>
+          <strong>Delivery:</strong> Kyrgyzstan (${deliveryCost.toFixed(2)})
+        </p>
+        <p>
+          <strong>Total:</strong> ${total.toFixed(2)}
+        </p>
       </div>
     </div>
   );

@@ -61,6 +61,9 @@ function Nav() {
         <SignOutButton className="signin-button"/>
         {<Auth />}
       </SignedIn>
+
+      <Link style={{ color: scrolled ? 'black' : 'white' }} to='/Cart'>[ CART ]</Link>
+
     </div>
   );
 }

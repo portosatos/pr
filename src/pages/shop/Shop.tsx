@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import Cart from './Cart';
-import Nav from '../../components/nav/Nav';
 import { Dropdown } from 'react-bootstrap';
+import { useCart } from '../../components/CartContext';
 import '../../index.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Nav from "../../components/nav/Nav"
 
 interface Item {
   id: number;
@@ -20,6 +21,7 @@ interface Item {
 }
 
 function Shop() {
+  const { addToCart } = useCart();
   const [data, setData] = useState<Item[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [cartItems, setCartItems] = useState<Item[]>([]);
@@ -88,9 +90,17 @@ function Shop() {
       case 'titleZA':
         return [...currentItems].sort((a, b) => b.title.localeCompare(a.title));
       case 'dateNewest':
-        return [...currentItems].sort((a, b) => new Date(b.date.year, b.date.month - 1, b.date.day).getTime() - new Date(a.date.year, a.date.month - 1, a.date.day).getTime());
+        return [...currentItems].sort(
+          (a, b) =>
+            new Date(b.date.year, b.date.month - 1, b.date.day).getTime() -
+            new Date(a.date.year, a.date.month - 1, a.date.day).getTime()
+        );
       case 'dateOldest':
-        return [...currentItems].sort((a, b) => new Date(a.date.year, a.date.month - 1, a.date.day).getTime() - new Date(b.date.year, b.date.month - 1, b.date.day).getTime());
+        return [...currentItems].sort(
+          (a, b) =>
+            new Date(a.date.year, a.date.month - 1, a.date.day).getTime() -
+            new Date(b.date.year, b.date.month - 1, b.date.day).getTime()
+        );
       default:
         return currentItems;
     }
@@ -98,6 +108,7 @@ function Shop() {
 
   const handleAddToCart = (item: Item): void => {
     setCartItems((prevCartItems) => [...prevCartItems, item]);
+    addToCart(item);
   };
 
   const handleSort = (value: string): void => {
@@ -110,77 +121,71 @@ function Shop() {
 
   return (
     <>
-      <Nav />
-      <header className="header-shop"></header>
-      <main>
-        <h1 className="text-2.5xl">Главная страница</h1>
+    <Nav/>
+    <header className='header-shop'></header>
+      <div className="dropdown">
+        <Dropdown>
+          <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+            {sortOptions[sortBy]}
+          </Dropdown.Toggle>
 
-        <div className="sort-container">
-          <Dropdown>
-            <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-              {sortOptions[sortBy]}
-            </Dropdown.Toggle>
+          <Dropdown.Menu>
+            {Object.keys(sortOptions).map((option) => (
+              <Dropdown.Item key={option} onClick={() => handleSort(option)}>
+                {sortOptions[option]}
+              </Dropdown.Item>
+            ))}
+          </Dropdown.Menu>
+        </Dropdown>
+      </div>
 
-            <Dropdown.Menu>
-              {Object.keys(sortOptions).map((option) => (
-                <Dropdown.Item key={option} onClick={() => handleSort(option)}>
-                  {sortOptions[option]}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
-
-        <div className="card-container">
-          {sortItems().map((item) => (
-            <div key={item.id} className="card">
-              <img src={item.thumbnailUrl} className="card-img" alt={`Thumbnail ${item.id}`} />
-              <div className="card-body">
-                <h5 className="card-title">{item.title}</h5>
-                <p className="card-text">${item.price}</p>
-              </div>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">{item.label === 'new' ? 'New' : 'Old'}</li>
-                <li className="list-group-item">{`${item.date.year}-${item.date.month}-${item.date.day}`}</li>
-              </ul>
-              <div className="card-body">
-                <Link to={`/item/${item.id}`} className="card-link">
-                  See More
-                </Link>
-                <button onClick={() => handleAddToCart(item)} className="card-link add-to-cart-btn">
-                  Add to Cart
-                </button>
-              </div>
+      <div className="card-container">
+        {sortItems().map((item) => (
+          <div key={item.id} className="card">
+            <img src={item.thumbnailUrl} className="card-img" alt={`Thumbnail ${item.id}`} />
+            <div className="card-body">
+              <h5 className="card-title">{item.title}</h5>
+              <p className="card-text">${item.price}</p>
             </div>
-          ))}
-        </div>
+            <ul className="list-group list-group-flush">
+              <li className="list-group-item">{item.label === 'new' ? 'New' : 'Old'}</li>
+              <li className="list-group-item">{`${item.date.year}-${item.date.month}-${item.date.day}`}</li>
+            </ul>
+            <div className="card-body">
+              <Link to={`/item/${item.id}`} className="card-link">
+                See More
+              </Link>
+              <button onClick={() => handleAddToCart(item)} className="card-link add-to-cart-btn">
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
 
-        <div className="pagination">
-          <button className="page-btn" onClick={goToPrevPage} disabled={currentPage === 1}>
-            Назад
+      <div className="pagination">
+        <button className="page-btn" onClick={goToPrevPage} disabled={currentPage === 1}>
+          Назад
+        </button>
+
+        {getPaginationRange().map((pageNumber) => (
+          <button
+            key={pageNumber}
+            className={`page-btn ${currentPage === pageNumber ? 'active' : ''}`}
+            style={{
+              backgroundColor: currentPage === pageNumber ? '#555' : '#ccc',
+              color: currentPage === pageNumber ? 'white' : 'black',
+            }}
+            onClick={() => paginate(pageNumber)}
+          >
+            {pageNumber}
           </button>
+        ))}
 
-          {getPaginationRange().map((pageNumber) => (
-            <button
-              key={pageNumber}
-              className={`page-btn ${currentPage === pageNumber ? 'active' : ''}`}
-              style={{
-                backgroundColor: currentPage === pageNumber ? '#555' : '#ccc',
-                color: currentPage === pageNumber ? 'white' : 'black',
-              }}
-              onClick={() => paginate(pageNumber)}
-            >
-              {pageNumber}
-            </button>
-          ))}
-
-          <button className="page-btn" onClick={goToNextPage} disabled={currentPage === totalPages}>
-            Вперед
-          </button>
-        </div>
-
-        <Cart cartItems={cartItems} />
-      </main>
+        <button className="page-btn" onClick={goToNextPage} disabled={currentPage === totalPages}>
+          Вперед
+        </button>
+      </div>
     </>
   );
 }
