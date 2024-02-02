@@ -1,15 +1,15 @@
+/* Секция общих стилей и импорт шрифта */
 @import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 
-/* HEADER */
-/* NAV */
+/* HEADER и NAV стили */
 :root {
     --index: calc(1vw + 1vh);
     --height: calc(1vh);
     --width: calc(1vw);
 }
-a{
-  color: white;
-}  
+a {
+    color: white;
+}
 * {
     margin: 0;
     padding: 0;
@@ -17,24 +17,34 @@ a{
     font-family: "Overpass";
     color: black;
 }
+body {
+    background-color: #fffeeb;
+}
+img {
+    background-color: #fffeeb;
+}
 
+/* Стили для HEADER */
 .header {
-    background-image: url(https://static.wixstatic.com/media/4e3a7d_c12d317e507945d5846d020c16a1fc57~mv2.jpg/v1/fill/w_1708,h_750,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/IMG_9395_JPG.jpg);
-    background-size: cover; 
+    background-image: url(https://static.wixstatic.com/media/4e3a7d_c12d317e507945d5846d020c16a1fc57~mv2.jpg/v1/fill/w_1642,h_600,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/IMG_9395_JPG.jpg);
+    background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
     height: calc(var(--height) * 100);
 }
 
+/* Стили для NAV */
 .nav {
     display: flex;
     position: fixed;
 }
 
-.nav-menu{
-    margin: calc(var(--width) * 2) calc(var(--width) * 3.9);
+/* Стили для NAV-MENU */
+.nav-menu {
+    margin: calc(var(--width) * 1.3) calc(var(--width) * 3.9);
 }
 
+/* Стили для NAV-LI и NAV-A */
 .nav li {
     display: inline-block;
     position: relative;
@@ -47,6 +57,7 @@ a{
     transition: background-color 0.3s ease;
 }
 
+/* Стили для SUBMENU (выпадающего списка) */
 .nav .submenu {
     display: block;
     max-height: 0;
@@ -54,7 +65,7 @@ a{
     transition: max-height 0.3s ease;
     position: absolute;
 }
-/* для выпадающего списка */
+
 .nav li:hover .submenu {
     max-height: 250px;
 }
@@ -63,167 +74,154 @@ a{
     display: block;
 }
 
-.user-avatar{
+/* Стили для USER-AVATAR и SIGNIN-BUTTON */
+.user-avatar {
     background-size: cover;
-    width: calc(var(--index) * 3);
-    height: calc(var(--index) * 3);
+    width: calc(var(--index) * 2.5);
+    height: calc(var(--index) * 2.5);
     border-radius: 50%;
 }
-
 
 .signin-button {
     background-color: none;
     border: none;
-    margin: calc(var(--index) * 1) 0 0 calc(var(--index) * 45);
-    width: calc(var(--index) * 3);
-    height: calc(var(--index) * 3);
+    margin: calc(var(--index) * 1) 0 0 calc(var(--index) * 40);
+    width: calc(var(--index) * 2);
+    height: calc(var(--index) * 2);
+}
+
+/* Стили для NUEVA-LOGO */
+.nueva-logo {
+    color: white;
+    font-family: "Overpass";
+    font-size: calc(var(--index) * 4.5);
+    text-align: center;
+    padding: calc(var(--index) * 12) 0 0 0;
 }
 
 
+/* Shop */
 
+/* Стили для HEADER-SHOP */
+.header-shop {
+  background-image: url(); 
+  background-size: cover; 
+  background-repeat: no-repeat;
+  width: 100%;
+  height: calc(var(--height) * 36);
+  background-position: bottom;
+}
 
-
- /* Shop */
-
-.header-shop{
-    background-image: url(https://static.wixstatic.com/media/4509de_b00537be73194250990b49f250f82a94~mv2.jpg/v1/fill/w_1708,h_438,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/EVD02784_edited.jpg);
-    background-size: cover; 
-    background-repeat: no-repeat;
-    width: 100%;
-    height: calc( var(--height) * 36);
-    background-position: bottom;
-  }
-
-
-
-
-
+/* Стили для ITEM, UL и SHOP-CARD-TITLE */
 .item {
-    width: calc(33.33% - (var(--index) * 2));
-    margin: var(--index); 
+  width: calc(33.33% - (var(--index) * 2));
+  margin: var(--index); 
 }
-
-
 
 ul {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
 }
 
 .shop-card-title {
-    font-size: 14px;
-    margin-top: 8px;
+  font-size: 14px;
+  margin-top: 8px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
+/* Стили для CART-LIST, CART-ITEM и CART-ITEM IMG */
 .cart-list {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .cart-item {
-    display: flex;
-    margin-bottom: 16px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 8px; 
-  }
-  
-  .cart-item img {
-    width: 80px; 
-    height: 80px; 
-    margin-right: 16px;
-  }
-  
+  display: flex;
+  flex-direction: column;
+}
 
+.cart-item {
+  display: flex;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px; 
+}
 
+.cart-item img {
+  width: 80px; 
+  height: 80px; 
+  margin-right: 16px;
+}
 
-  
-
-
+/* Стили для SHOP-CARD и SHOP-CARD IMG */
 .shop-card {
-    border: 1px solid #ccc;
-    padding: 16px;
-    margin: 16px;
-    max-width: 200px;
-  }
-  
-  .shop-card img {
-    max-width: 100%;
-    height: auto;
-  }
-  
-  .shop-card-title {
-    font-size: 16px;
-    margin-top: 8px;
-  }
-  
-  .shop-card-price {
-    font-size: 14px;
-    color: #008000; 
-    margin-top: 8px;
-  }
-  
-  .shop-card-label {
-    font-size: 14px;
-    color: #ff0000; 
-    margin-top: 8px;
-  }
-  
-  .sort-buttons {
-    margin: 20px 0;
-  }
-  
-  .sort-buttons button {
-    margin-right: 10px;
-    padding: 8px 16px;
-    font-size: 14px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .sort-buttons button.active {
-    background-color: #555;
-  }
-  
-  .pagination {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .page-btn {
-    padding: 8px 16px;
-    margin: 0 5px;
-    font-size: 14px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .page-btn.active {
-    background-color: #555;
-  }
-  
+  border: 1px solid #ccc;
+  padding: 16px;
+  margin: 16px;
+  max-width: 200px;
+}
 
-  .card{
-    width: 400px; 
-    height: 400px;
-  }
+.shop-card img {
+  max-width: 100%;
+  height: auto;
+}
 
+.shop-card-title {
+  font-size: 16px;
+  margin-top: 8px;
+}
+
+.shop-card-price {
+  font-size: 14px;
+  color: #008000; 
+  margin-top: 8px;
+}
+
+.shop-card-label {
+  font-size: 14px;
+  color: #ff0000; 
+  margin-top: 8px;
+}
+
+/* Стили для SORT-BUTTONS и PAGINATION */
+.sort-buttons {
+  margin: 20px 0;
+}
+
+.sort-buttons button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.sort-buttons button.active {
+  background-color: #555;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-btn {
+  padding: 8px 16px;
+  margin: 0 5px;
+  font-size: 14px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.page-btn.active {
+  background-color: #555;
+}
+
+/* Стили для CARD и CARD-CONTAINER */
+.card {
+  width: 400px; 
+  height: 400px;
+}
 
 .card-container {
   display: grid;
@@ -249,6 +247,7 @@ ul {
   flex: 1; 
 }
 
+/* Стили для NAV и MAIN-PAGE-SECTION-1 */
 .nav {
   transition: background-color 0.5s ease, padding 0.5s ease;
   position: fixed;
@@ -257,8 +256,9 @@ ul {
   z-index: 1000;
 }
 
+/* Стили для NAV-SCROLLED */
 .nav.scrolled {
-  background-color: white;
+  background-color: #fffeeb; 
   box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -266,19 +266,79 @@ ul {
   color: black;
 }
 
-
 .nav ul li a {
   color: white;
 }
 
+/* Стили для MAIN-PAGE-SECTION-1 */
+.main-page__section-1 {
+  display: flex;
+  padding: calc(var(--index) * 6) 0;
+}
+
+.main-page__section-1-img {
+  margin: 0 calc(var(--index) * 13) 0 0;
+}
+
+.main-page__section-1-title {
+  text-align: center;
+  font-size: calc(var(--index) * 0.7);
+  margin: calc(var(--index) * 3) 0 calc(var(--index) * 2) 0;
+}
+
+.main-page__section-1-text {
+  text-align: center;
+  font-size: calc(var(--index) * 0.5);
+}
+
+.main-page__section-1-button {
+  width: 30%;
+  height: calc(var(--index) * 1.6);
+  margin: calc(var(--index) * 2)  calc(var(--index) * 6);
+}
+
+/* SECTION 2 */
+
+/* Стили для MAIN-PAGE-SECTION-2 */
+.main-page__section-2 {
+  background-image: url(https://static.wixstatic.com/media/4e3a7d_cc20f4c3ad1949b4a8b765c5458d9257~mv2.jpeg/v1/fill/w_1642,h_657,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/000036_JPEG.jpeg); 
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 100%;
+  height: calc(var(--index) * 27);
+  display: flex;
+}
+
+.main-page__section-2-title {
+  font-size: calc(var(--index) * 5.7);
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
 
 
 
+.main-page__section-3{
+  display: flex;
+}
 
+.main-page__section-3-card{
+  width: calc(var(--index) * 20);
+  height: calc(var(--index) * 23);
+  border: 1px solid black;
+  margin: calc(var(--index) * 5) calc(var(--index) * 3);
+}
+.main-page__section-3-img{
+  width: 100%;
+}
+.main-page__section-3-title{
+  text-align: center;
+  font-size: calc(var(--index) * 0.7);
+  margin: calc(var(--index) * 1) calc(var(--index) * 3);
+}
+.main-page__section-3-text{
+  text-align: center;
+  font-size: calc(var(--index) * 0.5);
+  margin: calc(var(--index) * 1) calc(var(--index) * 3);
 
-
-
-
-
-
-
+}

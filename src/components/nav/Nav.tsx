@@ -39,10 +39,10 @@ function Nav() {
         </li>
 
         <li className="nav-menu">
-          <Link style={{ color: scrolled ? 'black' : 'white' }} to='/Shop'>[SHOP]</Link>
+          <Link style={{ color: scrolled ? 'black' : 'white' }} to='#'>[SHOP]</Link>
           <ul className='submenu'>
             <li className='li-secondary'>
-              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">SHOP</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/Shop">SHOP</a>
             </li>
             <li className='li-secondary'>
               <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">dsfsdfsd</a>
@@ -55,10 +55,10 @@ function Nav() {
       </ul>
 
       <SignedOut>
-        <SignInButton className="signin-button" />
+        <SignInButton className="signin-button"/>
       </SignedOut>
       <SignedIn>
-        <SignOutButton />
+        <SignOutButton className="signin-button"/>
         {<Auth />}
       </SignedIn>
     </div>

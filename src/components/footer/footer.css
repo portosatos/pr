@@ -19,7 +19,7 @@ ul{
 	list-style: none;
 }
 .footer{
-	background-color: #24262b;
+	background-color: #fffeeb;
     padding: 70px 0;
 }
 .footer-col{
@@ -79,7 +79,14 @@ ul{
 }
 .footer-col ul li {
     margin-bottom: 10px;
-  }
+}
+
+.centered-stripe {
+	width: 80%;
+	height: 1px;
+	background-color: #000; /* Adjust the background color as needed */
+	margin: 0 auto; /* Center the stripe horizontally */
+}
   
 @media(max-width: 767px){
   .footer-col{
