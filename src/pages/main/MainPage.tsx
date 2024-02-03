@@ -1,6 +1,8 @@
+import { Link } from "react-router-dom";
 import Card from "../../components/MainPageCard";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/Header";
+import Journal from "../../components/journal";
 
 function Main() {
     return (
@@ -33,12 +35,18 @@ function Main() {
             </section>
             <section className="main-page__section-2">
                 <p className="main-page__section-2-title">
+                    <Link to="/OurHistory">
                     [ OUR STORY ]
+                    </Link>
                 </p>
             </section>
 
             <section className="main-page__section-3">
-                    <Card
+                <p className="main-page__section-3-ttitle">
+                [JOURNAL]
+                </p>
+                <div className="main-page__section-3-cards">
+                <Card
                         imageUrl="https://static.wixstatic.com/media/e8a706_ed5ab337136b4ec89de4e3302635d766~mv2.jpg/v1/fill/w_426,h_361,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/e8a706_ed5ab337136b4ec89de4e3302635d766~mv2.jpg"
                         title="nueva. look book: spring 2021 edition."
                         description="Brody wears tumult. in stained mosaic. One of our best sellers,  tumult. boasts an exciting cat-eye flare with an extra kick to the likes..."
@@ -54,6 +62,12 @@ function Main() {
                         title="the benefits of polarised sunglasses."
                         description="Wearing polarised sunglasses is a great way to improve vision quality and reduce the harmful effects of UV rays on your eyes. All nueva...."
                     />
+                </div>
+                    <button className="section-3__button">
+                        <Link to={"/Journal"}>
+                            ALL JOURNALS
+                        </Link>
+                    </button>
             </section>
             <Footer />
         </div>
