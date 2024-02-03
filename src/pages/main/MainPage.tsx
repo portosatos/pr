@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Card from "../../components/MainPageCard";
 import Footer from "../../components/footer/footer";
 import Header from "../../components/header/Header";
-import Journal from "../../components/journal";
+// import Journal from "../../components/journal";
 
 function Main() {
     return (
@@ -64,7 +64,7 @@ function Main() {
                     />
                 </div>
                     <button className="section-3__button">
-                        <Link to={"/Journal"}>
+                        <Link to={"/Journal"} className="main-page__section-1-button button butttttttton">
                             ALL JOURNALS
                         </Link>
                     </button>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 function Footer() {
@@ -26,10 +27,18 @@ function Footer() {
 
         
         <div className="footer-links">
-            <p className="footer-link">asdasdas</p>
-            <p className="footer-link">asdasd</p>
-            <p className="footer-link">asdasda</p>
-            <p className="footer-link">asdasdd</p>
+          <Link className="footer-link" to="/Cart">
+          [ Cart ]
+          </Link>
+            <Link className="footer-link" to="/Shop">
+              [ Shop ]
+              </Link>
+            <Link to="OurHistory" className="footer-link">
+              [ OurHistory ]
+            </Link>
+            <Link to="/Journal" className="footer-link">
+             [ Journal ]
+            </Link>
         </div>
 
     </footer>

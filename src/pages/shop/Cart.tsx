@@ -1,6 +1,6 @@
-// Cart.tsx
-import React from 'react';
 import { useCart } from '../../components/CartContext';
+
+import styles from './Cart.module.scss'
 
 const Cart = () => {
   const { cartItems } = useCart();
@@ -12,9 +12,9 @@ const Cart = () => {
   return (
     <div>
       <h2>Order Summary</h2>
-      <ul className="cart-list">
+      <ul className={styles.cardList}>
         {cartItems.map((item) => (
-          <li key={item.id} className="cart-item">
+          <li key={item.id} className={styles.cartItem}>
             <img src={item.thumbnailUrl} alt={`Thumbnail ${item.id}`} />
             <div>
               <p>{item.title}</p>
@@ -24,7 +24,7 @@ const Cart = () => {
         ))}
       </ul>
 
-      <div className="order-summary">
+      <div className={styles.orderSummary}>
         <p>
           <strong>Subtotal:</strong> ${subtotal.toFixed(2)}
         </p>

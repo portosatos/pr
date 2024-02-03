@@ -1,5 +1,3 @@
-// App.tsx
-import React from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import './index.css';
 import MainPage from './pages/main/MainPage';
@@ -9,6 +7,7 @@ import Cart from './pages/shop/Cart';
 import { CartProvider } from './/components/CartContext';
 import OurHistory from './components/OurHistory';
 import Journal from './components/journal';
+import UserProfilePage from './components/user-profile/user.profile';
 
 
 
@@ -22,6 +21,7 @@ function App() {
           <Route path="/Shop" element={<Shop />} />
           <Route path='/OurHistory' element={<OurHistory/>}/>
           <Route path='/Journal' element={<Journal/>}/>
+          <Route path='/UserProfilePage' element={<UserProfilePage/>}/>
           <Route path="/404" element={<NotFound />} />
           <Route path="*" element={<Navigate to="/404" />} />
         </Routes>

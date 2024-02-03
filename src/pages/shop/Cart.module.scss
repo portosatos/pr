@@ -1,0 +1,49 @@
+.cardList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  
+    .cartItem {
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
+      padding: 12px;
+      border: 1px solid #ccc;
+      background-color: #f8f8f8;
+  
+      img {
+        width: 80px;
+        height: 80px;
+        margin-right: 16px;
+        border-radius: 4px;
+      }
+  
+      div {
+        p {
+          margin: 0;
+        }
+  
+        p:first-child {
+          font-weight: bold;
+          color: #333;
+        }
+      }
+    }
+  }
+  
+  .orderSummary {
+    margin-top: 20px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+  
+    p {
+      margin: 8px 0;
+  
+      strong {
+        margin-right: 8px;
+        color: #333;
+      }
+    }
+  }
+  

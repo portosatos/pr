@@ -376,3 +376,29 @@ ul {
   display: flex;
   padding: calc(var(--index) * 4) calc(var(--index) * 4);
 }
+
+.button{
+  color: black;
+  text-decoration: none;
+}
+
+.section-3__button{
+  padding: 0 0 0 calc(var(--index) * 0.5);
+  margin: 0 0 0 calc(var(--index) * 24);
+}
+
+
+
+
+.main-page__section-3{
+  align-items: center;
+}
+
+.signout-button {
+  background-color: none;
+  border: none;
+  margin: calc(var(--index) * 1) 0 0 calc(var(--index) * 30);
+  width: calc(var(--index) * 2);
+  height: calc(var(--index) * 2);
+
+}

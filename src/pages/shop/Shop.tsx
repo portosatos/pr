@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { Dropdown } from 'react-bootstrap';
@@ -6,6 +6,7 @@ import { useCart } from '../../components/CartContext';
 import '../../index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Nav from "../../components/nav/Nav"
+import Cart from './Cart';
 
 interface Item {
   id: number;
@@ -24,7 +25,7 @@ function Shop() {
   const { addToCart } = useCart();
   const [data, setData] = useState<Item[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [cartItems, setCartItems] = useState<Item[]>([]);
+  const [_, setCartItems] = useState<Item[]>([]);
   const [sortBy, setSortBy] = useState<string>('');
   const itemsPerPage = 12;
 
@@ -186,6 +187,7 @@ function Shop() {
           Вперед
         </button>
       </div>
+      <Cart/>
     </>
   );
 }

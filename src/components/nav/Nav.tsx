@@ -1,4 +1,6 @@
-import React, { useState, useEffect } from 'react';
+// @ts-nocheck
+
+import { useState, useEffect } from 'react';
 import { SignOutButton, SignInButton, SignedIn, SignedOut } from "@clerk/clerk-react";
 import Auth from "../auth/Auth";
 import { Link } from "react-router-dom";
@@ -30,10 +32,10 @@ function Nav() {
               <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/">HOME</a>
             </li>
             <li className='li-secondary'>
-              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">OUR STORY</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/OurHistory">OurHistory</a>
             </li>
             <li className='li-secondary'>
-              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">FEEDBACK</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/Journal">Journal</a>
             </li>
           </ul>
         </li>
@@ -45,10 +47,10 @@ function Nav() {
               <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/Shop">SHOP</a>
             </li>
             <li className='li-secondary'>
-              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">dsfsdfsd</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="/Cart">Cart</a>
             </li>
             <li className='li-secondary'>
-              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#">sdfsdfdsf</a>
+              <a style={{ padding: "8px 0", color: scrolled ? 'black' : 'white' }} href="#"></a>
             </li>
           </ul>
         </li>
@@ -58,11 +60,11 @@ function Nav() {
         <SignInButton className="signin-button"/>
       </SignedOut>
       <SignedIn>
-        <SignOutButton className="signin-button"/>
+        <SignOutButton className="signout-button"/>
         {<Auth />}
       </SignedIn>
 
-      <Link style={{ color: scrolled ? 'black' : 'white' }} to='/Cart'>[ CART ]</Link>
+      <Link style={{ color: scrolled ? 'black' : 'white', margin: "20px 0 0 0" }} to='/Cart'>[ CART ]</Link>
 
     </div>
   );

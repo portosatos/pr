@@ -8,12 +8,6 @@
 	padding: calc(var(--index) * 6) calc(var(--index) * 6) calc(var(--index) * 3) calc(var(--index) * 6);
 }
 
-* {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-}
-
 .container {
 	max-width: 1170px;
 	margin: auto;
@@ -25,6 +19,12 @@
 
 .footer-links {
 	padding: 0 0 0 calc(var(--index) * 35);
+}
+
+.footer-links a {
+	display: block;
+	color: black;
+	text-decoration: none;
 }
 
 .footer-links p {
